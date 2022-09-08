@@ -2,7 +2,6 @@ const express = require("express");
 const recordRoutes = require("express").Router();
 const bcrypt = require('bcryptjs');
 const Employee = require("../model/Employee");
-const EmployeeInfo = require("../model/EmployeeInfo");
 const jwt = require("jsonwebtoken");
 
 
@@ -41,15 +40,6 @@ recordRoutes.post("/register", async (req, resp) => {
         resp.status(200).send('resigster successfully');
       }
     } catch (e) {
-      resp.status(400).send(e)
-    }
-  });
-
-  recordRoutes.post("/users", async (req, resp) => {
-    try {
-      console.log(req.body);
-      resp.status(200).send('onboarding application submitted');
-    }catch (e) {
       resp.status(400).send(e)
     }
   });
